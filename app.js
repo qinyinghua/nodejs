@@ -54,11 +54,11 @@ var db_pwd  = "cmpe281" ;
 var db_name = "test" ;
 */
 
-var db_host = (process.env.mongodb_host || "localhost" ) ;
-var db_port = (process.env.mongodb_port || "27017" ) ;
-var db_user = (process.env.mongodb_user || "cmpe281" ) ;
-var db_pwd  = (process.env.mongodb_pwd  || "cmpe281" ) ;
-var db_name = (process.env.mongodb_name || "test" ) ;
+var db_host = (process.env.mongodb_host || "ds127293.mlab.com" ) ;
+var db_port = (process.env.mongodb_port || "27293" ) ;
+var db_user = (process.env.mongodb_user || "heroku_r5l1n1vf" ) ;
+var db_pwd  = (process.env.mongodb_pwd  || "pc6sufk1skqarn5i9s52i60ona" ) ;
+var db_name = (process.env.mongodb_name || "heroku_r5l1n1vf" ) ;
    
 
 var db = new DB(db_name,
@@ -66,6 +66,21 @@ var db = new DB(db_name,
                             { auto_reconnect: true,
                              poolSize: 20}),
                             { w: 1 } );
+
+/*
+let uri = 'mongodb://heroku_r5l1n1vf:pc6sufk1skqarn5i9s52i60ona@ds127293.mlab.com:27293/heroku_r5l1n1vf';
+
+// Retrieve
+var MongoClient = require('mongodb').MongoClient;
+
+// Connect to the db
+MongoClient.connect("uri", function(err, db) {
+  if(!err) {
+    console.log("We are connected");
+  }
+});
+*/
+
 
 db_init = function (callback) {
     async.waterfall([
